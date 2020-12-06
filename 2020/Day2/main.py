@@ -8,7 +8,7 @@ class Record:
 
 def read_input_data():
     records = []
-    with open('./input') as f:
+    with open('input') as f:
         content = f.readlines()
 
     for line in content:

@@ -1,6 +1,6 @@
 
 def read_input_data():
-    with open('./input') as f:
+    with open('input') as f:
         content = f.readlines()
     content = [int(x.strip()) for x in content]
     return content
