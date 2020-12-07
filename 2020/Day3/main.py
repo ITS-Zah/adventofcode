@@ -9,7 +9,6 @@ global memory
 
 
 def move(data, start_x, start_y, right, down):
-    global memory
     if start_y >= len(data):
         return 0
     if start_x >= len(data[0]):
@@ -17,6 +16,16 @@ def move(data, start_x, start_y, right, down):
     add_to_result = 1 if data[start_y][start_x] == '#' else 0
     return add_to_result + move(data, start_x + right, start_y + down, right, down)
 
+
+def move_memory(data, start_x, start_y, right, down, will_find_after):
+    global memory
+
+    if start_y >= len(data):
+        return 0
+    if start_x >= len(data[0]):
+        start_x -= len(data[0])
+    add_to_result = 1 if data[start_y][start_x] == '#' else 0
+    return add_to_result + move(data, start_x + right, start_y + down, right, down)
 
 def part1():
     global memory
