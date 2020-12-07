@@ -1,6 +1,6 @@
 
 def read_input_data():
-    with open('input') as f:
+    with open('input_test') as f:
         content = f.readlines()
     content = [int(x.strip()) for x in content]
     return content
@@ -43,6 +43,13 @@ def part1():
             break
 
 
+def part1_recurs():
+    data = read_input_data()
+    data = clean_data(data, 2)
+
+    print(calculate(data, 0, 0))
+
+
 def part2():
     data = read_input_data()
     data = clean_data(data, 3)
@@ -67,7 +74,15 @@ def part2():
                 break
 
 
-i = 0
-i += 1
-print("sdfsdf")
-part2()
+def calculate(data, first_index, second_index):
+    if (data[first_index] + data[second_index]) == 2020:
+        return data[first_index] * data[second_index]
+    else:
+        if second_index < len(data):
+            return calculate(data, first_index, second_index + 1)
+        else:
+            return calculate(data, first_index + 1, 0)
+
+
+part1()
+part1_recurs()
