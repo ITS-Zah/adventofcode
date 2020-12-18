@@ -78,30 +78,6 @@ def dict_based_solution(data, find, number_of_find):
         return None
 
 
-def part2():
-    data = read_input_data()
-    data = clean_data(data, 3)
-
-    already_checked = {}
-
-    is_result_founded = False
-
-    for i in range(len(data)):
-        for j in range(i + 1, len(data)):
-            if f"{data[i]},{data[j]}" in already_checked:
-                continue
-            else:
-                already_checked[f"{data[i]},{data[j]}"] = 1
-                already_checked[f"{data[j]},{data[i]}"] = 1
-            for k in range(j + 1, len(data)):
-                if (data[i] + data[j] + data[k]) == 2020:
-                    is_result_founded = True
-                    print(data[i] * data[j] * data[k])
-                    break
-            if is_result_founded:
-                break
-
-
 def calculate(data, first_index, second_index):
     if (data[first_index] + data[second_index]) == 2020:
         return data[first_index] * data[second_index]
